@@ -1,0 +1,22 @@
+{
+  "name": "birdyard-admin",
+  "version": "0.0.1",
+  "description": "Admin portal for Birdyard",
+  "main": "app.js",
+  "scripts": {
+    "start": "http-server -a localhost -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdyard/birdyard-admin.git"
+  },
+  "author": "David Nichols",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/birdyard/birdyard-admin/issues"
+  },
+  "homepage": "https://github.com/birdyard/birdyard-admin#readme",
+  "dependencies": {
+    "http-server": "^0.8.5"
+  }
+}

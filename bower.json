@@ -1,0 +1,26 @@
+{
+  "name": "birdyard-admin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/birdyard/birdyard-admin",
+  "description": "Admin portal for Birdyard",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "David Nichols"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4",
+    "angular-route": "~1.4.9",
+    "bootstrap": "~3.3.6"
+  }
+}
