@@ -8,9 +8,15 @@
   ])
   
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/flagged', {
+    $routeProvider.whenAuthenticated('/flagged', {
       controller: 'flaggedController',
-      templateUrl: 'sections/views/flagged.html'
+      templateUrl: 'sections/views/flagged.html',
+      resolve: {
+        user: ['$Auth', function ($Auth) {
+          var $auth = $Auth;
+          return $auth.$waitForAuth(); 
+        }]
+      }
     });
   }])
   

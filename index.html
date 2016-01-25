@@ -33,6 +33,12 @@
         <div>
           <img class="logo" src="assets/images/logo.svg" />
         </div>
+        
+        <!--<div class="sticky-bottom">
+          <div ng-if="signedIn" class="spaced text-center">
+            Signed-in!
+          </div>
+        </div>-->
       </div>
       <div class="col-md-9" ng-view>
         <!-- Content -->
@@ -47,6 +53,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <script src="app.js"></script>
+    <script src="sections/auth.js"></script>
+    <script src="sections/utils.js"></script>
     <script src="sections/stats.js"></script>
     <script src="sections/users.js"></script>
     <script src="sections/flagged.js"></script>

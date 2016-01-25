@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('birdyard-admin', [
+  'birdyard-admin.auth',
   'birdyard-admin.stats',
   'birdyard-admin.users',
   'birdyard-admin.flagged',
-  'birdyard-admin.broadcast'
+  'birdyard-admin.broadcast',
+  'birdyard-admin.utils'
 ])
 
 // Routing default

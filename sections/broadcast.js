@@ -8,9 +8,15 @@
   ])
   
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/broadcast', {
+    $routeProvider.whenAuthenticated('/broadcast', {
       controller: 'broadcastController',
-      templateUrl: 'sections/views/broadcast.html'
+      templateUrl: 'sections/views/broadcast.html',
+      resolve: {
+        user: ['$Auth', function ($Auth) {
+          var $auth = $Auth;
+          return $auth.$waitForAuth(); 
+        }]
+      }
     });
   }])
   

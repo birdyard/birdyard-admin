@@ -8,9 +8,15 @@
   ])
   
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/stats', {
+    $routeProvider.whenAuthenticated('/stats', {
       controller: 'statsController',
-      templateUrl: 'sections/views/stats.html'
+      templateUrl: 'sections/views/stats.html',
+      resolve: {
+        user: ['$Auth', function ($Auth) {
+          var $auth = $Auth;
+          return $auth.$waitForAuth(); 
+        }]
+      }
     });
   }])
   
