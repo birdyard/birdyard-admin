@@ -29,6 +29,7 @@
           <button class="btn btn-default" ng-click="go('users')">Users</button>
           <button class="btn btn-default" ng-click="go('flagged')">Flagged Items</button>
           <button class="btn btn-default" ng-click="go('broadcast')">Broadcast</button>
+          <button ng-if="signedIn" class="btn btn-default" ng-click="go('auth')">Sign Out</button>
         </div>
         <div>
           <img class="logo" src="assets/images/logo.svg" />
