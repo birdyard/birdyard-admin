@@ -20,8 +20,37 @@
     });
   }])
   
-  .controller('usersController', ['$scope', function ($scope) {
+  .controller('usersController', [
+    '$scope', 
+    'firebaseService', 
+    '$firebaseArray', 
+  
+  function (
+    $scope, 
+    firebaseService, 
+    $firebaseArray) {
     
+    var $usersRef = firebaseService.getRef('users');
+    
+    // Scope
+    
+    $scope.users = $firebaseArray($usersRef);
+    
+    $scope.promote = function (uid) {
+      var $user = $scope.users.$getRecord(uid);
+      if (!$user.authorization) {
+        $user.authorization = {};
+      }
+      $user.authorization.admin = true;
+      $scope.users.$save($user).then(function () {
+        console.log('yeah!');
+      });
+    };
+    
+    $scope.demote = function (uid) {
+      
+    };
+
   }]);
   
 })(angular);

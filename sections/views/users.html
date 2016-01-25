@@ -1,3 +1,33 @@
 <div>
   <h1>Birdyard Users</h1>
 </div>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Username</td>
+        <td>UID</td>
+        <td>Twitter handle</td>
+        <td>Admin?</td>
+        <td>Promote/Demote</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="$user in users">
+        <td class="vert-align">{{$user.name}}</td>
+        <td class="vert-align">{{$user.uid}}</td>
+        <td class="vert-align">{{$user.handle}}</td>
+        <td class="vert-align">
+          <span ng-show="$user.authorization.admin">Yes</span>
+          <span ng-hide="$user.authorization.admin">No</span>
+        </td>
+        <td class="vert-align">
+          <button class="btn btn-success" ng-hide="$user.authorization.admin" ng-click="promote($user.uid)">Promote</button>
+          <button class="btn btn-danger" ng-show="$user.authorization.admin" ng-click="demote($user.uid)">Demote</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
