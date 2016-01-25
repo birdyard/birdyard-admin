@@ -1,0 +1,116 @@
+/* ////////////////////////////////////////////////////////// */
+/* Reset /////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////// */
+
+*, 
+*:after, 
+*:before { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, 
+.clearfix:after { 
+  content: " "; 
+  display: table; 
+}
+
+.clearfix:after { 
+  clear: both; 
+}
+
+html {
+  overflow-y: scroll;
+}
+
+html, 
+body {
+  font-size: 14px;
+  font-family: 'Hind', sans-serif;
+  color: #666;
+  background-color: #ecf0f1;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+/* Highlighting selections */
+
+::selection {
+  background: rgba(0,0,0,0.1); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(0,0,0,0.1); /* Gecko Browsers */
+}
+
+/* https://css-tricks.com/almanac/properties/u/user-select/*/
+body, 
+p {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+a {
+  color: #666;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+a:hover,
+a:active,
+:visited {
+  text-decoration: none;
+  color: #666;
+}
+
+*[class^="col-"] {
+  min-height: 1000px;
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: center;
+}
+
+/* ////////////////////////////////////////////////////////// */
+/* Containers ////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////// */
+
+.menu {
+  background-color: #8e44ad;
+}
+
+.menu .btn-group-vertical {
+  display: block;
+  width: 80%;
+  max-width: 300px;
+  margin: 5px auto;
+}
+
+.menu .btn {
+  display: block;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.menu .header {
+  font-size: 1.5em;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.menu .logo {
+  display: block;
+  width: 20%;
+  margin: 30px auto;
+}

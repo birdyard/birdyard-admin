@@ -8,12 +8,48 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- Fonts-->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,500,700" rel="stylesheet" type="text/css">
     
+    <!-- Style -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=2">
   </head>
   <body>
-  
+    
+    <div class="row">
+      <div class="col-md-3 menu">
+        <h2 class="header">Menu</h2>
+        <!-- Navigation -->
+        <div class="btn-group-vertical" role="group" aria-label="Navigation" ng-controller="menuController">
+          <button class="btn btn-default" ng-click="go('stats')">Stats</button>
+          <button class="btn btn-default" ng-click="go('users')">Users</button>
+          <button class="btn btn-default" ng-click="go('flagged')">Flagged Items</button>
+          <button class="btn btn-default" ng-click="go('broadcast')">Broadcast</button>
+        </div>
+        <div>
+          <img class="logo" src="assets/images/logo.svg" />
+        </div>
+      </div>
+      <div class="col-md-9" ng-view>
+        <!-- Content -->
+      </div>
+    </div>
+    
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
     <script src="app.js"></script>
+    <script src="sections/stats.js"></script>
+    <script src="sections/users.js"></script>
+    <script src="sections/flagged.js"></script>
+    <script src="sections/broadcast.js"></script>
   </body>
 </html>
