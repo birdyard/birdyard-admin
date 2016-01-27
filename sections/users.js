@@ -36,21 +36,13 @@
     
     $scope.users = $firebaseArray($usersRef);
     
-    $scope.promote = function (uid) {
+    $scope.setAuthorization = function (uid, level) {
       var $user = $scope.users.$getRecord(uid);
-      if (!$user.authorization) {
-        $user.authorization = {};
-      }
-      $user.authorization.admin = true;
+      $user.authorization = level;
       $scope.users.$save($user).then(function () {
         console.log('yeah!');
       });
     };
-    
-    $scope.demote = function (uid) {
-      
-    };
-
   }]);
   
 })(angular);

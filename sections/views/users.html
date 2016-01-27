@@ -9,8 +9,7 @@
         <td>Username</td>
         <td>UID</td>
         <td>Twitter handle</td>
-        <td>Admin?</td>
-        <td>Promote/Demote</td>
+        <td>Authorization</td>
       </tr>
     </thead>
     <tbody>
@@ -19,12 +18,22 @@
         <td class="vert-align">{{$user.uid}}</td>
         <td class="vert-align">{{$user.handle}}</td>
         <td class="vert-align">
-          <span ng-show="$user.authorization.admin">Yes</span>
-          <span ng-hide="$user.authorization.admin">No</span>
-        </td>
-        <td class="vert-align">
-          <button class="btn btn-success" ng-hide="$user.authorization.admin" ng-click="promote($user.uid)">Promote</button>
-          <button class="btn btn-danger" ng-show="$user.authorization.admin" ng-click="demote($user.uid)">Demote</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" ng-class="{'btn-danger': $user.authorization == -1, 'btn-success': $user.authorization == 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span ng-switch="$user.authorization">
+                <span ng-switch-when="0">User</span>
+                <span ng-switch-when="1">Admin</span>
+                <span ng-switch-when="-1">Banned</span>
+                <span ng-switch-default>User</span>
+              </span> 
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="" ng-click="setAuthorization($user.uid, 0)">Make User</a></li>
+              <li><a href="" ng-click="setAuthorization($user.uid, 1)">Make Admin</a></li>
+              <li><a href="" ng-click="setAuthorization($user.uid, -1)">Ban User</a></li>
+            </ul>
+          </div>
         </td>
       </tr>
     </tbody>
