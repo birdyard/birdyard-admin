@@ -24,21 +24,30 @@
   
   function ($scope, firebaseService, $firebaseArray) {
     
-    var $count = $firebaseArray(firebaseService.getRef('presence', 'count'));
+    // Private
     
     function watchCount($data) {
       if ($data.event === 'child_removed' || $data.event === 'child_added') {
-        $scope.numActive = $count.length;
+        $scope.numActive = $activeCount.length;
       }
     }
     
-    $scope.numActive = 'calculating...';
+    // Scope
     
-    $count.$loaded().then(function () {
-      $scope.numActive = $count.length;
-      $count.$watch(watchCount);
+    $scope.numActive = 'calculating...';
+    $scope.numUsers = 'calculating...';
+    
+    var $activeCount = $firebaseArray(firebaseService.getRef('presence', 'count'));
+    var $usersRef = firebaseService.getRef('users'); 
+    
+    $activeCount.$loaded().then(function () {
+      $scope.numActive = $activeCount.length;
+      $activeCount.$watch(watchCount);
     });
-
+    
+    $usersRef.once('value', function ($snap) {
+      $scope.numUsers = Object.keys($snap.val()).length;
+    });
   }]);
   
 })(angular);
