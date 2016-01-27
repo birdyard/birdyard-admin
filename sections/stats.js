@@ -20,8 +20,25 @@
     });
   }])
   
-  .controller('statsController', ['$scope', function ($scope) {
+  .controller('statsController', ['$scope', 'firebaseService', '$firebaseArray', 
+  
+  function ($scope, firebaseService, $firebaseArray) {
     
+    var $count = $firebaseArray(firebaseService.getRef('presence', 'count'));
+    
+    function watchCount($data) {
+      if ($data.event === 'child_removed' || $data.event === 'child_added') {
+        $scope.numActive = $count.length;
+      }
+    }
+    
+    $scope.numActive = 'calculating...';
+    
+    $count.$loaded().then(function () {
+      $scope.numActive = $count.length;
+      $count.$watch(watchCount);
+    });
+
   }]);
   
 })(angular);
