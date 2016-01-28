@@ -36,3 +36,5 @@ node_modules
 # 3rd-party
 bower_components/
 node_modules/
+
+settings.json

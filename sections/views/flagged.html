@@ -1,3 +1,36 @@
 <div>
   <h1>Flagged Posts</h1>
 </div>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Link</td>
+        <td>Flag Count</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="i in flaggedItems | orderBy: 'i.count'">
+        <td class="vert-align">
+          <button class="btn btn-primary" ng-click="goTo(i.$id)">View Comment</button>
+        </td>
+        <td class="vert-align">{{i.count}}</td>
+        <td class="vert-align">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Action
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="" ng-click="doAction('removeComment', i.$id)">Remove</a></li>
+              <li><a href="" ng-click="doAction('ignore', i.$id)">Ignore</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
